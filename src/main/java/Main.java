@@ -7,7 +7,7 @@ public class Main {
         int[] testDivideOnGroups = {1, 2, -1};
         String testFindSumNumbers = "123456789";
         System.out.println(findThreeLargestNumbers(testFindLargestNumbers));
-        divideOnGroups(testDivideOnGroups, 3);
+        divideOnGroups(testDivideOnGroups, 4);
         System.out.println(findSumNumbers(testFindSumNumbers));
     }
 
@@ -19,16 +19,16 @@ public class Main {
         int max2 = Integer.MIN_VALUE;
         int max3 = Integer.MIN_VALUE;
 
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] > max1) {
+        for (int number : numbers) {
+            if (number > max1) {
                 max3 = max2;
                 max2 = max1;
-                max1 = numbers[i];
-            } else if (numbers[i] > max2) {
+                max1 = number;
+            } else if (number > max2) {
                 max3 = max2;
-                max2 = numbers[i];
-            } else if (numbers[i] > max3) {
-                max3 = numbers[i];
+                max2 = number;
+            } else if (number > max3) {
+                max3 = number;
             }
         }
         return Arrays.asList(max1, max2, max3);
@@ -65,17 +65,15 @@ public class Main {
     /**
      * Метод который вызывает рекурсивную функцию для работы с массивом чисел
      */
-    public static boolean divideOnGroups(int[] ints, int m) {
+    public static void divideOnGroups(int[] ints, int m) {
         if(m > ints.length) {
-            System.out.println("Containers counts shouldn't was more than array length");
-            return false;
+            System.out.println("Containers counts shouldn't be more than array length");
         } else {
             List<Integer> containers = Arrays.asList(new Integer[m]);
             for (int i = 0; i < m; i++) {
                 containers.set(i, 0);
             }
             System.out.println("result exist = " + recFunc(ints, 0, containers));
-            return true;
         }
     }
 }
