@@ -66,7 +66,7 @@ public class Main {
      * Метод который вызывает рекурсивную функцию для работы с массивом чисел
      */
     public static void divideOnGroups(int[] ints, int m) {
-        if(m > ints.length) {
+        if (m > ints.length) {
             System.out.println("Containers counts shouldn't be more than array length");
         } else {
             List<Integer> containers = Arrays.asList(new Integer[m]);
